@@ -4,22 +4,27 @@ import 'package:provider/provider.dart';
 import 'package:super_life_app/features/timer/timer_screen.dart';
 import 'package:super_life_app/layout/app_shell.dart';
 import 'package:super_life_app/providers/expense_provider.dart';
+import 'package:super_life_app/providers/timer_provider.dart';
 
 import 'features/expense_tracker/expense_tracker.dart';
 import 'features/notes /notes_screen.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'model/expense_tracker_model.dart';
+import 'model/timer_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Hive.registerAdapter(ExpenseTrackerModelAdapter());
+  Hive.registerAdapter(TimerModelAdapter());
   await Hive.openBox<ExpenseTrackerModel>('myBox');
+  await Hive.openBox<TimerModel>('timerBox');
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ExpenseProvider()),
+        ChangeNotifierProvider(create: (_) => TimerProvider()),
       ],
       child: MyApp(),
     ),
