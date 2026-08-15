@@ -14,12 +14,23 @@ class TimerWidgetManual extends StatefulWidget {
 }
 
 class _TimerWidgetManualState extends State<TimerWidgetManual> {
-  late final int _duration = widget.duration;
+  late int _duration = widget.duration;
   final CountDownController _controller = CountDownController();
 
   @override
   void initState() {
     super.initState();
+    _duration = widget.duration;
+  }
+
+  @override
+  void didUpdateWidget(covariant TimerWidgetManual oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.duration != widget.duration) {
+      setState(() {
+        _duration = widget.duration;
+      });
+    }
   }
 
   @override
@@ -63,7 +74,7 @@ class _TimerWidgetManualState extends State<TimerWidgetManual> {
             children: [
               FloatingActionButton(
                 onPressed: () {
-                  _controller.start();
+                  _controller.restart(duration: _duration);
                 },
                 child: const Icon(Icons.play_arrow),
               ),

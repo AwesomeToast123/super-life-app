@@ -6,6 +6,7 @@ import 'package:super_life_app/model/timer_model.dart';
 class TimerProvider extends ChangeNotifier {
     final Box<TimerModel> _myBox = Hive.box<TimerModel>('timerBox');
     List<TimerModel> get Timer => _myBox.values.toList();
+     int duration = 0;
 
     void addTimer(int timerValue, String timerName) {
       final timer = TimerModel(
@@ -22,6 +23,11 @@ class TimerProvider extends ChangeNotifier {
         timerName: timerName,
       );
       _myBox.putAt(index, timer);
+      notifyListeners();
+    }
+
+    void setTimer(int durationChange) {
+      duration = durationChange;
       notifyListeners();
     }
 
