@@ -17,9 +17,10 @@ class ExpenseTrackerDetailListWidget extends StatefulWidget {
 class _ExpenseTrackerDetailListWidgetState extends State<ExpenseTrackerDetailListWidget>
 {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
     final expenseProvider = context.watch<ExpenseProvider>();
-    
+
     return Scaffold(
       body: Column(
         children: [

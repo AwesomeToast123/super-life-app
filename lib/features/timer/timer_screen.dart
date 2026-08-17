@@ -22,40 +22,43 @@ class _TimerScreenState extends State<TimerScreen> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Timer')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-                height: 300,
-                child: TimerWidgetManual(duration: timerProvider.duration)
-            ),
-            Gap(130),
-            SizedBox(
-              width: 400,
-              height: 100,
-              child: TimerPreferenceListWidget(timer: timerProvider,),
-            ),
-            Divider(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text("Preferences"),
-                Gap(40),
-                ElevatedButton(
-                  onPressed: () => showModalBottomSheet(
-                    context: context,
-                    builder: (context) {
-                      return TimerSavePreferenceWidget();
-                    },
+      body: SingleChildScrollView(
+        child:   Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                  height: 300,
+                  child: TimerWidgetManual(duration: timerProvider.duration)
+              ),
+              Gap(50),
+              SizedBox(
+                width: 400,
+                height: 150,
+                child: TimerPreferenceListWidget(timer: timerProvider,),
+              ),
+              Gap(150),
+              Divider(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("Preferences"),
+                  Gap(40),
+                  ElevatedButton(
+                    onPressed: () => showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return TimerSavePreferenceWidget();
+                      },
+                    ),
+                    child: const Text("Add Preference"),
                   ),
-                  child: const Text("Add Preference"),
-                ),
-              ],
-            ),
-            Gap(30),
-          ],
+                ],
+              ),
+              Gap(30),
+            ],
+          ),
         ),
       ),
     );

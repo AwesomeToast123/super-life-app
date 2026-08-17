@@ -8,20 +8,23 @@ class TimerProvider extends ChangeNotifier {
     List<TimerModel> get Timer => _myBox.values.toList();
      int duration = 0;
 
-    void addTimer(int timerValue, String timerName) {
+    void addTimer(int timerValue, String timerName, String hhmmss) {
       final timer = TimerModel(
         timerValue: timerValue,
-        timerName: timerName,
+        timerName: hhmmss,
+        timerTitle: timerName,
       );
       _myBox.add(timer);
       notifyListeners();
     }
 
-    void updateTimer(int index, int timerValue, String timerName) {
+    void updateTimer(int index, int timerValue, String timerName, String hhmmss) {
       final timer = TimerModel(
         timerValue: timerValue,
-        timerName: timerName,
+        timerName: hhmmss,
+        timerTitle: timerName,
       );
+
       _myBox.putAt(index, timer);
       notifyListeners();
     }

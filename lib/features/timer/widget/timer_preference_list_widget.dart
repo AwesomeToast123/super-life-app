@@ -20,21 +20,28 @@ class TimerPreferenceListWidget extends StatelessWidget {
               return SingleChildScrollView(
                 child: ListTile(
                   title: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       InkWell(
                         onTap: () {
-                          timer.setTimer(timerVariable.timerValue);
+                          timer.setTimer(timerVariable.timerValue ?? 0);
                         },
                         child: Row(
                           children: [
                             Text(
-                              timerVariable.timerName,
+                              timerVariable.timerName ?? "Name",
                               style: TextStyle(fontSize: 20),
                             ),
                             Gap(50),
                             Text(
-                              timerVariable.timerValue.toString(),
+                              timerVariable.timerTitle ?? "Title",
                               style: TextStyle(fontSize: 20),
+                            ),
+                            Gap(50),
+                            IconButton(
+                              onPressed: () => timer.deleteTimer(index),
+                              icon: Icon(Icons.delete, color: Colors.green),
                             ),
                           ],
                         ),

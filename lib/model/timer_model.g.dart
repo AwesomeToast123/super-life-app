@@ -17,19 +17,22 @@ class TimerModelAdapter extends TypeAdapter<TimerModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return TimerModel(
-      timerValue: fields[0] as int,
-      timerName: fields[1] as String,
+      timerValue: fields[0] as int?,
+      timerName: fields[1] as String?,
+      timerTitle: fields[2] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, TimerModel obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.timerValue)
       ..writeByte(1)
-      ..write(obj.timerName);
+      ..write(obj.timerName)
+      ..writeByte(2)
+      ..write(obj.timerTitle);
   }
 
   @override

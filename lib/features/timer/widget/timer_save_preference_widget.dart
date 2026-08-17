@@ -64,7 +64,7 @@ class _TimerSavePreferenceWidgetState extends State<TimerSavePreferenceWidget>
         ElevatedButton(
             onPressed: () {
                final hhmmss = _formatDuration(_selectedDuration);
-               timerProvider.addTimer(_selectedDuration.inSeconds, _controllerTextFieldTimeName.text);
+               timerProvider.addTimer(_selectedDuration.inSeconds, hhmmss, _controllerTextFieldTimeName.text);
             },
             child: const Text("add preference")
         ),
