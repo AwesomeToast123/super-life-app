@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:super_life_app/features/ai_chat_bot/chat_assistant_widget.dart';
 import 'package:super_life_app/features/timer/timer_screen.dart';
 import 'package:super_life_app/layout/app_shell.dart';
 import 'package:super_life_app/providers/expense_provider.dart';
@@ -13,9 +14,23 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'model/expense_tracker_model.dart';
 import 'model/timer_model.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_ai/firebase_ai.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
+import 'firebase_options.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
+  await FirebaseAppCheck.instance.activate(
+    androidProvider: AndroidProvider.debug
+  );
+
+  final model =  FirebaseAI.googleAI().generativeModel(model: 'gemini-3.7-flash');
+
   Hive.registerAdapter(ExpenseTrackerModelAdapter());
   Hive.registerAdapter(TimerModelAdapter());
   await Hive.openBox<ExpenseTrackerModel>('myBox');
@@ -31,7 +46,6 @@ void main() async {
   );
 }
 
-
 final GoRouter _router = GoRouter(
   routes: [
     StatefulShellRoute.indexedStack(
@@ -42,13 +56,23 @@ final GoRouter _router = GoRouter(
             StatefulNavigationShell navigationShell,
           ) {
             return AppShell(navigationShell: navigationShell);
-          },
+            },
       branches: [
         StatefulShellBranch(
           routes: [
             GoRoute(
               path: '/',
-              builder: (context, state) => const TimerScreen(),
+              builder: (context, state) => Scaffold(
+                body: Center(
+                  child: TimerScreen(),
+                ),
+                floatingActionButton: FloatingActionButton(
+                    onPressed: (){
+                      context.go('/chat-bot');
+                    },
+                    child: const Icon(Icons.add)
+                ),
+              ),
             ),
           ],
         ),
@@ -70,7 +94,12 @@ final GoRouter _router = GoRouter(
         ),
       ],
     ),
+    GoRoute(
+        path: '/chat-bot',
+        builder: (context, state) => const ChatAssistantWidget()
+    ),
   ],
+
 );
 
 class MyApp extends StatelessWidget {
@@ -79,6 +108,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),

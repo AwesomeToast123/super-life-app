@@ -1,29 +1,168 @@
 PODS:
+  - AppCheckCore (11.3.1):
+    - GoogleUtilities/Environment (~> 8.0)
+    - GoogleUtilities/UserDefaults (~> 8.0)
+    - PromisesObjC (~> 2.4)
+    - PromisesSwift (~> 2.4)
+    - RecaptchaInterop (~> 101.0)
   - file_selector_macos (0.0.1):
     - FlutterMacOS
+  - Firebase/AppCheck (12.17.0):
+    - Firebase/CoreOnly
+    - FirebaseAppCheck (~> 12.17.0)
+  - Firebase/Auth (12.17.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 12.17.0)
+  - Firebase/CoreOnly (12.17.0):
+    - FirebaseCore (~> 12.17.0)
+  - firebase_ai (3.15.0):
+    - FlutterMacOS
+  - firebase_app_check (0.4.6):
+    - Firebase/AppCheck (~> 12.17.0)
+    - Firebase/CoreOnly (~> 12.17.0)
+    - firebase_core
+    - FlutterMacOS
+  - firebase_auth (6.5.7):
+    - Firebase/Auth (~> 12.17.0)
+    - Firebase/CoreOnly (~> 12.17.0)
+    - firebase_core
+    - FlutterMacOS
+  - firebase_core (4.13.0):
+    - Firebase/CoreOnly (~> 12.17.0)
+    - FlutterMacOS
+  - FirebaseAppCheck (12.17.0):
+    - AppCheckCore (~> 11.3)
+    - FirebaseAppCheckInterop (~> 12.17.0)
+    - FirebaseCore (~> 12.17.0)
+    - GoogleUtilities/Environment (~> 8.1)
+    - GoogleUtilities/UserDefaults (~> 8.1)
+  - FirebaseAppCheckInterop (12.17.0)
+  - FirebaseAuth (12.17.0):
+    - FirebaseAppCheckInterop (~> 12.17.0)
+    - FirebaseAuthInterop (~> 12.17.0)
+    - FirebaseCore (~> 12.17.0)
+    - FirebaseCoreExtension (~> 12.17.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.1)
+    - GoogleUtilities/Environment (~> 8.1)
+    - GTMSessionFetcher/Core (< 6.0, >= 3.4)
+    - RecaptchaInterop (~> 101.0)
+  - FirebaseAuthInterop (12.17.0)
+  - FirebaseCore (12.17.0):
+    - FirebaseCoreInternal (~> 12.17.0)
+    - GoogleUtilities/Environment (~> 8.1)
+    - GoogleUtilities/Logger (~> 8.1)
+  - FirebaseCoreExtension (12.17.0):
+    - FirebaseCore (~> 12.17.0)
+  - FirebaseCoreInternal (12.17.0):
+    - "GoogleUtilities/NSData+zlib (~> 8.1)"
   - FlutterMacOS (1.0.0)
+  - GoogleUtilities/AppDelegateSwizzler (8.1.2):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Environment (8.1.2):
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Logger (8.1.2):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Network (8.1.2):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Privacy
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (8.1.2)":
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Privacy (8.1.2)
+  - GoogleUtilities/Reachability (8.1.2):
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/UserDefaults (8.1.2):
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Privacy
+  - GTMSessionFetcher/Core (5.3.1)
+  - PromisesObjC (2.4.1)
+  - PromisesSwift (2.4.1):
+    - PromisesObjC (= 2.4.1)
+  - record_macos (1.2.1):
+    - FlutterMacOS
+  - url_launcher_macos (0.0.1):
+    - FlutterMacOS
   - video_player_avfoundation (0.0.1):
     - Flutter
     - FlutterMacOS
 
 DEPENDENCIES:
   - file_selector_macos (from `Flutter/ephemeral/.symlinks/plugins/file_selector_macos/macos`)
+  - firebase_ai (from `Flutter/ephemeral/.symlinks/plugins/firebase_ai/macos`)
+  - firebase_app_check (from `Flutter/ephemeral/.symlinks/plugins/firebase_app_check/macos`)
+  - firebase_auth (from `Flutter/ephemeral/.symlinks/plugins/firebase_auth/macos`)
+  - firebase_core (from `Flutter/ephemeral/.symlinks/plugins/firebase_core/macos`)
   - FlutterMacOS (from `Flutter/ephemeral`)
+  - record_macos (from `Flutter/ephemeral/.symlinks/plugins/record_macos/macos`)
+  - url_launcher_macos (from `Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/macos`)
   - video_player_avfoundation (from `Flutter/ephemeral/.symlinks/plugins/video_player_avfoundation/darwin`)
+
+SPEC REPOS:
+  trunk:
+    - AppCheckCore
+    - Firebase
+    - FirebaseAppCheck
+    - FirebaseAppCheckInterop
+    - FirebaseAuth
+    - FirebaseAuthInterop
+    - FirebaseCore
+    - FirebaseCoreExtension
+    - FirebaseCoreInternal
+    - GoogleUtilities
+    - GTMSessionFetcher
+    - PromisesObjC
+    - PromisesSwift
 
 EXTERNAL SOURCES:
   file_selector_macos:
     :path: Flutter/ephemeral/.symlinks/plugins/file_selector_macos/macos
+  firebase_ai:
+    :path: Flutter/ephemeral/.symlinks/plugins/firebase_ai/macos
+  firebase_app_check:
+    :path: Flutter/ephemeral/.symlinks/plugins/firebase_app_check/macos
+  firebase_auth:
+    :path: Flutter/ephemeral/.symlinks/plugins/firebase_auth/macos
+  firebase_core:
+    :path: Flutter/ephemeral/.symlinks/plugins/firebase_core/macos
   FlutterMacOS:
     :path: Flutter/ephemeral
+  record_macos:
+    :path: Flutter/ephemeral/.symlinks/plugins/record_macos/macos
+  url_launcher_macos:
+    :path: Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/macos
   video_player_avfoundation:
     :path: Flutter/ephemeral/.symlinks/plugins/video_player_avfoundation/darwin
 
 SPEC CHECKSUMS:
+  AppCheckCore: e215d35177a9cf469927863e69c13e220df32a8b
   file_selector_macos: 9e9e068e90ebee155097d00e89ae91edb2374db7
+  Firebase: e8400c058702940d53f31fc0653e4e7a06332326
+  firebase_ai: d7b423aaddc22c081aa70ddaaa89840a1dbb8a40
+  firebase_app_check: 624be6527aa59a8095e90d307cff086714814409
+  firebase_auth: 52109b8ba9fa912ffd252888e8850744698aa259
+  firebase_core: e8b60facc016cf2a8fe661b9f673d3e78cce8f82
+  FirebaseAppCheck: 64d364d08ad1f6e8e084f7183c802df0a69eba3c
+  FirebaseAppCheckInterop: 6d4cd7b9df8047da8cfc98c3fef4618bab2a8e0d
+  FirebaseAuth: d27d2fc54508c3af9db2f617300fcf3042328d80
+  FirebaseAuthInterop: 1679f5a45921270225b7eabf1ad4ebff8790fe82
+  FirebaseCore: 52d4512296984a44a8c8870c6494870fc7aeee2f
+  FirebaseCoreExtension: be2d62bfcf339c7dd94646d43d910aaf37fe17c1
+  FirebaseCoreInternal: 3b310521b34a51ce3a6c605e4618b9aef8f6c112
   FlutterMacOS: d0db08ddef1a9af05a5ec4b724367152bb0500b1
+  GoogleUtilities: 766ace00c6b10d8148408f329d10c4f051931850
+  GTMSessionFetcher: a6d2b2aa203485893d4511ff64642dc811f7c09f
+  PromisesObjC: 752c3227f599e3467650e47ea36f433eeb10c273
+  PromisesSwift: 217dea0fd5d2ad65222a109c48698add13cc1c5b
+  record_macos: 5d55909f9650314be6424ffd6b123ac75a08c3c1
+  url_launcher_macos: f87a979182d112f911de6820aefddaf56ee9fbfd
   video_player_avfoundation: 3453f792138786248960ca029747fcd9f318ef52
 
 PODFILE CHECKSUM: 54d867c82ac51cbd61b565781b9fada492027009
 
-COCOAPODS: 1.16.2
+COCOAPODS: 1.17.0
